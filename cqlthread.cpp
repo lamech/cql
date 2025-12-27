@@ -5,14 +5,15 @@
 #include "environment.h"
 #include "numericvariable.h"
 #include "uchar.h"
-#include <thread>
+// #include <thread>
 #include <chrono>
-using std::thread;
+//using std::thread;
 void cql_execute(string cqlfilename,int nthreads){
   auto timeStart=std::chrono::high_resolution_clock::now();
-  if(nthreads==0)nthreads=1;
+//  if(nthreads==0)nthreads=1;
+  nthreads=1;
   uassert(nthreads>0,"cql_execute bad nthread");
-  bool forcesinglethread=false;
+  bool forcesinglethread=true;
   vector<CqlNode*>cqlnodes=generateCqlNodes(cqlfilename, nthreads,&forcesinglethread);
   if(forcesinglethread){
     uassert(cqlnodes.size()==1,"cql_execute: persistent: threads: internal");
@@ -61,8 +62,8 @@ void cql_execute(string cqlfilename,int nthreads){
   //  vector<vector<int>>biggames(nthreads);
   vector<vector<GameSortInfo>>results(nthreads);
   uassert((int)(results.size())==nthreads,"cql_execute internal result");
-  vector<std::thread*>threads;
-  threads.push_back(NULL);
+  // vector<std::thread*>threads;
+  //threads.push_back(NULL);
   std::vector<size_t>ngames_array;
   for(int i=0;i<nthreads;++i)ngames_array.push_back(0);
   for(auto&g:ngames_array)g=0;
@@ -70,6 +71,7 @@ void cql_execute(string cqlfilename,int nthreads){
     uassert(!CqlRunningThreads,"CRT in cqlthread");
     CqlRunningThreads=true;}
   for (int threadindex=1;threadindex<nthreads;++threadindex){
+/*
     threads.push_back(new std::thread(thread_exec,
 				      cqlnodes[threadindex],
 				      qgames[threadindex],
@@ -77,11 +79,12 @@ void cql_execute(string cqlfilename,int nthreads){
 				      nthreads,
 				      &ngames_array.at(threadindex),
 				      &results[threadindex]));
+*/
   }
-  uassert((int)(threads.size())==nthreads,"cql_execute threadssize");
+ // uassert((int)(threads.size())==nthreads,"cql_execute threadssize");
   thread_exec(cqlnodes.front(),qgames.front(),0,nthreads,&ngames_array[0],&results[0]);
   for(int threadindex=1;threadindex<nthreads;++threadindex){
-    threads[threadindex]->join();
+    //threads[threadindex]->join();
   }
   if(nthreads>1){
     uassert(CqlRunningThreads,"CRT2 in cqlthread");
@@ -125,7 +128,7 @@ void cql_execute(string cqlfilename,int nthreads){
 
 
 vector<CqlNode*> generateCqlNodes(string filename, int nthreads, bool *forcesinglethreadp){
-  *forcesinglethreadp=false;
+  *forcesinglethreadp=true;
   uassert(nthreads>0,"generateCqlNodes args");
   if(CqlEcho){
     UChar::echoFile(filename);
@@ -260,9 +263,10 @@ void cqlcheckvalid(vector<CqlNode*>&roots){
 }
 
 int cql_compute_number_threads(){
-  int hc = std::thread::hardware_concurrency();
-  if (hc<=1) return 1;
-  return hc-1;
+  return 1;
+  //int hc = std::thread::hardware_concurrency();
+  //if (hc<=1) return 1;
+  //return hc-1;
 }
 
 /*pause the current thread for the given number of seconds. This will I hope remove

@@ -23,7 +23,7 @@
 
 #include <stdio.h>
 #include <ctype.h>
-#include <mutex>
+// #include <mutex>
 
 static uint hashVal [16][64];
 static uint stdStartHash = 0;
@@ -79,15 +79,15 @@ Position::RemoveFromBoard (pieceT p, squareT sq)
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // initHashValues:
 //    Initialises the table of Zobrist hash values.
-std::mutex SCID_hash_mutex; //added by stiller
+//std::mutex SCID_hash_mutex; //added by stiller
 void
 initHashValues (void)
 {
   /* deleting in 9.359 to simplify windows compilation
   if (CqlIsExiting) //added 9.324 by stiller to prevent bad Mac error message if another thread invoked exit before this was executed and this thread attempts to check a mutex that has been destroyed
-    exit(1);
+  exit(1);
   */
-  std::lock_guard<std::mutex> guard(SCID_hash_mutex);
+//  std::lock_guard<std::mutex> guard(SCID_hash_mutex);
     // Ensure we set up the hash values only once:
     static int firstCall = 1;
     if (! firstCall) { return; }
@@ -2767,7 +2767,7 @@ Position::PrintCompactStrFlipped (char * cboard)
 //      It is not considered an error for the halfmove clock or fullmove
 //      counter to be invalid, so this routine can also read positions
 //      from EPD lines (which only share the first four fields with FEN).
-std::mutex SCID_fen_mutex; //added by stiller
+//std::mutex SCID_fen_mutex; //added by stiller
 
 errorT
 Position::ReadFromFEN (const char * str)
@@ -2780,7 +2780,7 @@ Position::ReadFromFEN (const char * str)
     static squareT fenSqToRealSquare [64];
 
     // Note the first Call to set up the static arrays only once:
-    std::lock_guard<std::mutex> guard(SCID_fen_mutex);
+ //   std::lock_guard<std::mutex> guard(SCID_fen_mutex);
     static int firstCall = 1;
     ASSERT (str != NULL);
     const char * s = str;

@@ -7,17 +7,17 @@ StringIteratorNode::StringIteratorNode(
 		   Node*body):
   theTarget(target),thePattern(pattern),theBody(body){
   uassert(theTarget&&theBody&&theTarget->isString(),"sin null arg");
-    try{
+//    try{
       theRegex=std::regex{thePattern}; //std::multiline  just fails!
-    }
-    catch (const std::regex_error& e){
-      stringstream s;
-      s<<"Malformed regex found in pattern: "
-       <<thePattern
-       <<" with error given of: "
-       <<e.what();
-      eassert(false,s.str());
-    } //catch
+ //   }
+//   catch (const std::regex_error& e){
+//      stringstream s;
+//      s<<"Malformed regex found in pattern: "
+//       <<thePattern
+//       <<" with error given of: "
+//       <<e.what();
+//      eassert(false,s.str());
+//    } //catch
 }
 
 bool StringIteratorNode::match_position(QPos*qpos){

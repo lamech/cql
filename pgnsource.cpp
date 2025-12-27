@@ -7,9 +7,9 @@
 #include "cqlglobals.h"
 #include "pgnsource.h"
 #include <cstring>
-#include <mutex>
+// #include <mutex>
 
-std::mutex pgnSourceMutex;
+//std::mutex pgnSourceMutex;
 
 PgnSource::PgnSource(string name):fileName(name){
   eassert(CqlPgnStdin||fileName.size(),"pgnsource:emptyfilename");
@@ -58,7 +58,7 @@ Considered pausing but that has implementation issues
   if (CqlIsExiting)
     cql_exit(1);
   
-  std::lock_guard<std::mutex> guard(pgnSourceMutex); // http://en.cppreference.com/w/cpp/thread/mutex
+//  std::lock_guard<std::mutex> guard(pgnSourceMutex); // http://en.cppreference.com/w/cpp/thread/mutex
   ++nRequests;
   uassert(!isReading,"nextGame: isReading is true unexpectedly"); //mutex check
   isReading=true; 

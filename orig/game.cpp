@@ -1221,7 +1221,7 @@ Game::ExactMatch (Position * searchPos, ByteBuffer * buf, simpleMoveT * sm,
         KeepDecodedMoves = false;
     }
 
-    uint plyCount = 0;
+    //uint plyCount = 0; // DAN: not used 
     //uint skip = 0;    // Just for statistics on number of moves skipped.
     uint search_whiteHPawns = 0;
     uint search_blackHPawns = 0;
@@ -1418,7 +1418,7 @@ Game::ExactMatch (Position * searchPos, ByteBuffer * buf, simpleMoveT * sm,
                 return false;
             }
         }
-        plyCount++;
+        //plyCount++; // DAN: unused
     }
     return false;
 }

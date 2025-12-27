@@ -5,8 +5,9 @@ StringMatchNode::StringMatchNode(Node*targetnode,const string&pattern):
   targetNode(targetnode),thePattern(pattern){
   uassert(targetNode&&targetNode->isString(),
 	  "SMN bad args");
-  try{
+  //try{
     theRegex=std::regex{thePattern}; //std::regex::multiline does not exist!!
+/*
     }
     catch (const std::regex_error& e){
       stringstream s;
@@ -16,6 +17,7 @@ StringMatchNode::StringMatchNode(Node*targetnode,const string&pattern):
        <<e.what();
       uassert(false,s.str());
     }
+*/
 }
 bool StringMatchNode::match_position(QPos*qpos){
   return match_stringvalue(qpos,NULL);

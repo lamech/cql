@@ -38,7 +38,8 @@ void parseargs(int argc, char*argv[]){
   string cqlfile; // the CQL file
   string player; // the global player
   string matchstring="CQL";
-  CqlNumberThreads=cql_compute_number_threads();
+  //CqlNumberThreads=cql_compute_number_threads();
+  CqlNumberThreads=1;
   int nextarg=0;
   if(argc==1){
     printhelp();
@@ -509,7 +510,8 @@ void parseargs(int argc, char*argv[]){
     }
     else if (matchoption(current,"m") ||
 	     matchoption(current,"multithreaded")){
-      CqlNumberThreads=cql_compute_number_threads();
+      //CqlNumberThreads=cql_compute_number_threads();
+      CqlNumberThreads=1;
     }
     else if (matchoption(current,"s") ||
 	     matchoption(current,"singlethreaded")){
