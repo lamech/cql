@@ -1,3 +1,5 @@
+![CQL running on a-shell](cql-a-shell.png)
+
 ABOUT THIS CODE
 ---------------
 
