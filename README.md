@@ -3,7 +3,7 @@
 ABOUT THIS CODE
 ---------------
 
-This is a fork of the CQL source distribution "build 9.493," as obtained from this URL: https://www.gadycosteff.com/cql/download.html
+This is a fork of the [CQL](https://www.gadycosteff.com/cql) source distribution "build 9.493," as obtained from this URL: https://www.gadycosteff.com/cql/download.html
 
 HOW I HAVE CHANGED THIS CODE
 ----------------------------
