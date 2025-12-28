@@ -10,15 +10,16 @@ else
 endif
 #If using gcc (for example, the default on Linux) uncomment the following line
 #OSFLAGS= -Wno-format-overflow -Wno-sign-compare -Wno-maybe-uninitialized
-#Dan: for Macos:
-WASI_SYSROOT=/Users/dan/work/wasi-sdk/share/wasi-sysroot
-OSFLAGS= -Wno-format-overflow -Wno-sign-compare -Wno-uninitialized -Wno-switch -Wno-format-security -Wno-deprecated-declarations --target=wasm32-wasi --sysroot=$(WASI_SYSROOT)
+OSFLAGS= -Wno-format-overflow -Wno-sign-compare -Wno-uninitialized -Wno-switch -Wno-format-security -Wno-deprecated-declarations 
 # please contact us if there are any issues with the Linux build
 #COMPILE = g++
 #LINK = g++
-COMPILE = /Users/dan/work/wasi-sdk/bin/clang++
-LINK = /Users/dan/work/wasi-sdk/bin/lld
-OPTIMIZE= -O3
+# Dan: Update if you have the wasi-sdk somewhere else:
+COMPILE = ~/work/wasi-sdk-29.0-arm64-macos/bin/clang++
+LINK = ~/work/wasi-sdk-29.0-arm64-macos/bin/wasm-ld
+#OPTIMIZE= -O3
 #uncomment the following line if on Linux and using the gcc toolsuite
 #LINUXPTHREADOPTION = -pthread
-CPP_FLAGS = ${LINUXPTHREADOPTION} -g ${OPTIMIZE} ${OSFLAGS} -std=c++17 -Werror -Wall -Wno-write-strings -Wno-char-subscripts  -Wno-parentheses -fdiagnostics-show-option  -fno-exceptions ${CYyy}  -DASSERTIONS -I. -I./orig
+#CPP_FLAGS = ${LINUXPTHREADOPTION} -g ${OPTIMIZE} ${OSFLAGS} -std=c++17 -Werror -Wall -Wno-write-strings -Wno-char-subscripts  -Wno-parentheses -fdiagnostics-show-option ${CYyy}  -DASSERTIONS -I. -I./orig
+# Dan: we add -fno-exceptions so we can compile with the WASI SDK:
+CPP_FLAGS = ${OSFLAGS} -fno-exceptions -std=c++17 -Werror -Wall -Wno-write-strings -Wno-char-subscripts  -Wno-parentheses -fdiagnostics-show-option ${CYyy}  -DASSERTIONS -I. -I./orig

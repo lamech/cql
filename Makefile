@@ -547,7 +547,7 @@ orig/tree.o:
 all:	orig/tree.o 
 
 cql:	orig/tree.o ${MYOBJS} ${MYHEADERS}
-	${COMPILE} ${CPP_FLAGS} ${MYOBJS} ${MYORIGOBJS} -o cql
+	${COMPILE} ${CPP_FLAGS} ${MYOBJS} ${MYORIGOBJS} -o cql.wasm
 
 cleanout:
 	rm -f *-out.pgn

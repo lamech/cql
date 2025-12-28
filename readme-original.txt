@@ -34,8 +34,10 @@ This source distribution includes only minimal source code documentation.
 Contact the authors if you want to modify the source code and would like
 additional documentation.
 
-LICENSE
--------
+ORIGINAL LICENSING MESSAGE
+--------------------------
+
+For reference, the original message about licensing in this file was as follows (for the updated/corrected licensing information, please see ABOUT LICENSING in the file README.md):
 
  All the files in the subdirectory orig/ are by Shane Hudson and
  were distributed under the GNU License version 2. 
@@ -46,5 +48,3 @@ LICENSE
  specified all rights are reserved.
 
  For documentation, see http://www.gadycosteff.com/cql
- 
-  
