@@ -5,6 +5,8 @@ ABOUT THIS CODE
 
 This is a fork of the [CQL](https://www.gadycosteff.com/cql) source distribution "build 9.493," as obtained from this URL: https://www.gadycosteff.com/cql/download.html
 
+**It is a work in progress, and might not actually work yet!**
+
 HOW I HAVE CHANGED THIS CODE
 ----------------------------
 
@@ -17,7 +19,7 @@ exceptions, since neither are supported by WASI's libc++. So far, I've removed
 this functionality by strategically commenting it out; see the git history in
 this repo for the gory details. In many cases I've indicated my changes with a comment that says "Dan:". My approach has not been elegant or pretty, and
 may break some of CQL's functionality; please consider this code **highly
-experimental.**
+experimental.** I have only gotten it to the point where it compiles, runs and outputs its help message; other CQL functionality may currently be broken. Proceed with caution!
 
 Maybe if I have time later I'll come back and do it more cleanly. For now I just wanted to get it working so I can play with CQL on my phone.
 
