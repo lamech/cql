@@ -19,7 +19,7 @@ this repo for the gory details. In many cases I've indicated my changes with a c
 may break some of CQL's functionality; please consider this code **highly
 experimental.**
 
-Maybe if I have time later I'll come back and do it more cleanly. For now I just wanted to get it working so can I play with CQL on my phone.
+Maybe if I have time later I'll come back and do it more cleanly. For now I just wanted to get it working so I can play with CQL on my phone.
 
 BUILDING & RUNNING ON iOS
 -------------------------
