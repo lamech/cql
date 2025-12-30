@@ -28,7 +28,7 @@ Maybe if I have time later I'll come back and do it more cleanly. For now I just
 BUILDING & RUNNING ON iOS
 -------------------------
 
-Here's how I do this on my Mac.
+Here's how I build `cql.wasm` on my Mac. **NOTE:** I have *not* yet succeeded in building it on my phone. If you do, **"patches welcome!"**
 
 Download the [WASI SDK](https://github.com/WebAssembly/wasi-sdk/releases), edit `src/makefile-flags` so the `COMPILE` and `LINK` variables point at the `clang++` and `wasm-ld` contained therein, respectively, then run `make`.
 
