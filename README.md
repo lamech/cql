@@ -12,6 +12,8 @@ HOW I HAVE CHANGED THIS CODE
 
 This code includes the changes I've made to get CQL 6.2 to run on an iPhone inside [a-shell](https://holzschu.github.io/a-Shell_iOS/).
 
+To assist with testing, I've also added the `test.pgn` file that ships with CQL 6.
+
 In order to get CQL to compile, I am using [the latest WASI
 SDK](https://github.com/WebAssembly/wasi-sdk/releases), version 29.0 as of this
 writing. I have had to remove multithreading/mutexes and all use of C++
