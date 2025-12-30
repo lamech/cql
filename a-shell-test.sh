@@ -1,6 +1,6 @@
 #!/usr/bin/sh
 
-mkdir -f testoutput
+mkdir -p testoutput
 
 for i in $(ls exalpha/);
   do
