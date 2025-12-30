@@ -40,7 +40,7 @@ Finally, copy `cql.wasm` to the a-shell directory on your iOS device. You should
 wasm cql.wasm [arguments]
 ```
 
-If you clone this git repo into your a-shell environment and copy or move `cql.wasm` into its top level, you can run the tests like this:
+If you clone this git repo into your a-shell environment and copy or move `cql.wasm` into its top level, `make test` **won't work**, because our Makefile relies on GNU Make-isms that aren't supported by a-shell's weird version of `make`. Never fear, you can still run the tests, with this little dash script:
 
 `./a-shell-test.sh`
 
