@@ -1,3 +1,5 @@
 **/*.o
+**/*.o.tmp
 **/.*.swp
-cql.wasm
+**/cql.wasm
+testoutput
