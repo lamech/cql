@@ -40,9 +40,9 @@ Finally, copy `cql.wasm` to the a-shell directory on your iOS device. You should
 wasm cql.wasm [arguments]
 ```
 
-If you clone this git repo into your a-shell environment and copy or move `cql.wasm` into its top level, you can run the tests by overriding the default wasm executable to use the one that comes with a-shell, like this:
+If you clone this git repo into your a-shell environment and copy or move `cql.wasm` into its top level, you can run the tests like this:
 
-`make test WASM=wasm`
+`./a-shell-test.sh`
 
 For more about building C++ projects for a-shell, check out [the book](https://bianshen00009.gitbook.io/a-guide-to-a-shell/lets-do-more-for-it/compile-a-simple-command-with-a-shell).
 
