@@ -30,7 +30,7 @@ ${e:R:T}: $(TESTOUTPUT)
 
 test: $(TESTOUTPUT)
 .for e in ${EXAMPLES:O}
-	@$(MAKE) ${e:R:T}
+	$(WASM) $(CQL_WASM) -i sample.pgn -o $(TESTOUTPUT)/${e:R:T}-out.pgn exalpha/${e:R:T}.cql
 .endfor
 
 $(TESTOUTPUT):
