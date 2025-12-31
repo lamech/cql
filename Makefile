@@ -38,4 +38,4 @@ $(TESTOUTPUT):
 	mkdir -p $(@)
 
 release:
-	tar cfz cql-wasm-$(BUILD_NO).tgz cql.wasm LICENSE
+	tar cfz cql-wasm-$(BUILD_NO).tgz cql.wasm LICENSE RUNNING.md
