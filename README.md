@@ -73,7 +73,7 @@ However, the website from which this code was obtained asserts in its FAQ that:
 "CQL is built using the PGN parser written by Shane Hudson, licensed under GPL 2, which is part of the SCID/CQL integration chess database system. All code not in the subdirectory orig is licensed under an MIT license."
  -- https://www.gadycosteff.com/cql/faq.html
 
-My understanding of the GPLv2 is that any code derived from a GPLv2 licensed
+I went and looked at SCID, and its codebase mentions GPLv2, but does *not* say "or any later version," as convenient as that would have been. My understanding of the GPLv2 is that any code derived from a GPLv2 licensed
 work must also be released under the GPLv2. As such, it seems we *must*
 consider the CQL source distribution to also be released under GPLv2, and thus,
 the current code with my changes must also be released under the GPLv2, a copy
