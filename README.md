@@ -57,7 +57,7 @@ wasm cql.wasm [arguments]
 
 ### Optional: Test What You Built in a-shell
 
-The `make` in a-shell is actually `bmake`, and it also ships with the `wasm` command. If you clone this git repo into your a-shell environment and copy or move `cql.wasm` into its top level, `make test WASM=wasm` should Just Work.
+The `make` in a-shell is actually `bmake`, and it also ships with the `wasm` command. If you clone this git repo into your a-shell environment and copy or move `cql.wasm` into its top level, `make test WASM=wasm` ~~should Just Work~~. Except it doesn't, it segfaults. **Patches welcome!** Meanwhile, you can run the `a-shell-test.sh` script instead.
 
 For more about building C++ projects for a-shell, check out [the book](https://bianshen00009.gitbook.io/a-guide-to-a-shell/lets-do-more-for-it/compile-a-simple-command-with-a-shell).
 
