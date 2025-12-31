@@ -1,7 +1,5 @@
 ![CQL running on a-shell](cql-a-shell.png)
 
-[[TOC]]
-
 ABOUT THIS CODE
 ---------------
 
