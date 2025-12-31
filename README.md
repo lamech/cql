@@ -1,6 +1,6 @@
 ![CQL running on a-shell](cql-a-shell.png)
 
-[[_TOC_]]
+[[TOC]]
 
 ABOUT THIS CODE
 ---------------
