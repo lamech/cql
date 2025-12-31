@@ -12,7 +12,7 @@ HOW I HAVE CHANGED THIS CODE
 
 This code includes the changes I've made to get CQL 6.2 to run on an iPhone inside [a-shell](https://holzschu.github.io/a-Shell_iOS/).
 
-To assist with testing, I've also added the `test.pgn` file that ships with CQL 6.
+To assist with testing, I've also added the `sample.pgn` file that ships with CQL 6.
 
 In order to get CQL to compile, I am using [the latest WASI
 SDK](https://github.com/WebAssembly/wasi-sdk/releases), version 29.0 as of this
@@ -30,9 +30,22 @@ BUILDING & RUNNING ON iOS
 
 Here's how I build `cql.wasm` on my Mac. **NOTE:** I have *not* yet succeeded in building it on my phone. If you do, **"patches welcome!"**
 
-Download the [WASI SDK](https://github.com/WebAssembly/wasi-sdk/releases), edit `src/makefile-flags` so the `COMPILE` and `LINK` variables point at the `clang++` and `wasm-ld` contained therein, respectively, then run `make`.
+### Prerequisites
 
-**Optional**: If you have [wasmtime](https://wasmtime.dev) installed, you can test the resulting `cql.wasm` with all the CQL file examples in `exalpha/` by running `make test` (of the original `exalpha` examples, 4 do not currently work; I have moved them to `exalpha-excludes`, and will move them back if/when I can get them working).
+* dash - POSIX-compliant shell, ships with MacOS
+* bmake - portable cross-platform build system, available via Homebrew
+* The [WASI SDK](https://github.com/WebAssembly/wasi-sdk/releases)
+* Optional (for testing): [wasmtime](https://wasmtime.dev)
+
+### Build
+
+Install bmake, download the [WASI SDK](https://github.com/WebAssembly/wasi-sdk/releases), edit `src/makefile-flags` so the `COMPILE` and `LINK` variables point at the `clang++` and `wasm-ld` contained therein, respectively, then run `bmake`.
+
+### Test What You Built
+
+**Optional**: If you have [wasmtime](https://wasmtime.dev) installed, you can test the resulting `cql.wasm` with all the CQL file examples in `exalpha/` by running `bmake test` (of the original `exalpha` examples, 4 do not currently work; I have moved them to `exalpha-excludes`, and will move them back if/when I can get them working).
+
+### Deploy to a-shell
 
 Finally, copy `cql.wasm` to the a-shell directory on your iOS device. You should now be able to run it with:
 
@@ -40,9 +53,9 @@ Finally, copy `cql.wasm` to the a-shell directory on your iOS device. You should
 wasm cql.wasm [arguments]
 ```
 
-If you clone this git repo into your a-shell environment and copy or move `cql.wasm` into its top level, `make test` **won't work**, because our Makefile relies on GNU Make-isms that aren't supported by a-shell's weird version of `make`. Never fear, you can still run the tests, with this little dash script:
+### Optional: Test What You Built in a-shell
 
-`./a-shell-test.sh`
+The `make` in a-shell is actually `bmake`, and it also ships with the `wasm` command. If you clone this git repo into your a-shell environment and copy or move `cql.wasm` into its top level, `make test WASM=wasm` should Just Work.
 
 For more about building C++ projects for a-shell, check out [the book](https://bianshen00009.gitbook.io/a-guide-to-a-shell/lets-do-more-for-it/compile-a-simple-command-with-a-shell).
 
