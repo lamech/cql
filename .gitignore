@@ -3,3 +3,4 @@
 **/.*.swp
 **/cql.wasm
 testoutput
+cql-wasm*.tgz

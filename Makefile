@@ -2,6 +2,7 @@
 # that uses dash (https://www.in-ulm.de/~mascheck/various/ash/) 
 # for compatibility with a-shell.
 
+BUILD_NO=1
 SHELL:=dash
 CQL_WASM:=cql.wasm
 WASM:=wasmtime --dir=.
@@ -35,3 +36,6 @@ test: $(TESTOUTPUT)
 
 $(TESTOUTPUT):
 	mkdir -p $(@)
+
+release:
+	tar cfz cql-wasm-$(BUILD_NO).tgz cql.wasm LICENSE

@@ -3,7 +3,7 @@ RATIONALE
 
 I am a huge fan of Gady Costeff and Lewis Stiller, and of Shane Hudson and SCID, but I also believe in free/open source software and I would like to get this right.
 
-The distribution from which this fork is derived came with the message reproduced in the `src/readme-original.txt` file, which mentions that the contents of the `src/orig/` directory are derived from SCID code by Shane Hudson. It does not explicitly apply any particular license to the code outside the `src/orig/` directory.
+The distribution from which this fork is derived came with the message reproduced in the src/readme-original.txt file, which mentions that the contents of the src/orig/ directory are derived from SCID code by Shane Hudson. It does not explicitly apply any particular license to the code outside the src/orig/ directory.
 
 However, the website from which this code was obtained asserts in its FAQ that:
 
@@ -11,14 +11,14 @@ However, the website from which this code was obtained asserts in its FAQ that:
  -- https://www.gadycosteff.com/cql/faq.html
 
 My understanding of the GPL is that any code derived from a GPL licensed work
-must also be released under the GPL. And, by [the GPL authors' own definition
-of "derivative" works](https://www.gnu.org/licenses/gpl-faq.html), code which
+must also be released under the GPL. And, by the GPL authors' own definition
+of "derivative" works (https://www.gnu.org/licenses/gpl-faq.html), code which
 calls GPL code counts as "derivative" (that is: putting it in a separate source
 directory doesn't avoid "derivation"). As such, it seems we can conclude that
 the CQL source distribution *should* have been released under the GPL, and
 thus, the current code with my changes must also be released under the GPL.
 
-Meanwhile, as far as I can tell, SCID's license is not restricted to a particular version of the GPL. That is, although the full text of version 2 is distributed with the sources, this declaration from the `COPYING` file in the [SCID codebase](https://sourceforge.net/projects/scid/files/latest/download?source=files) does not mention any specific GPL version, nor does [the SCID website](https://scid.sourceforge.net):
+Meanwhile, as far as I can tell, SCID's license is not restricted to a particular version of the GPL. That is, although the full text of version 2 is distributed with the sources, this declaration from the `COPYING` file in the SCID codebase (https://sourceforge.net/projects/scid/files/latest/download?source=files) does not mention any specific GPL version, nor does the SCID website (https://scid.sourceforge.net):
 
 "All the files that comprise Scid (except a few contributed files, see
 below) are copyright (C) 1999-2003 Shane Hudson and are distributed under
@@ -28,13 +28,13 @@ understand the GPL, it basically means you can distribute Scid freely,
 and may modify it, but any modifications you make must also be made
 freely available as source code under the terms of the GPL."
 
-Because no specific version of the GPL is specified by SCID's authors, but version 2 is supplied with the software, it seems to me that the last sentence of section 9 applies:
+Because no specific version of the GPL is specified by SCID's authors, it seems to me that the last sentence of section 9 of the GPLv2 included with SCID applies:
 
 "If the Program does not specify a version number of this License, you may choose any version ever published by the Free Software Foundation."
 
 As such, I am licensing my modifications under the GNU AGPLv3, a copy of which you will find in the LICENSE file at the top of this repo.
 
-If you feel I've got this wrong, please don't hesitate to reach out by opening an issue on this Github repo.
+If you feel I've got this wrong, please don't hesitate to reach out by opening an issue on this Github repo: https://github.com/lamech/cql
 
 --Dan Friedman, Toronto, December 2025.
 
@@ -46,8 +46,10 @@ This fork of CQL6 for WASI contains changes copyright (C) 2025 Dan Friedman.
 The copyright for the non-SCID files in the distribution from which this fork
 derives is still retained by Lewis Stiller and Gady Costeff.
 
-NOTICE
-------
+NOTICES
+-------
+
+The source code for this program is available here: https://github.com/lamech/cql/
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU Affero General Public License as
