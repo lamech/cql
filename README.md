@@ -28,7 +28,7 @@ Maybe if I have time later I'll come back and do it more cleanly. For now I just
 TL;DR
 -----
 
-To run the build cql.wasm on an iOS device in a-shell, see [RUNNING](RUNNING.md).
+To run `cql.wasm` on an iOS device in a-shell, see [RUNNING](RUNNING.md).
 
 BUILDING IT YOURSELF
 --------------------
