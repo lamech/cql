@@ -41,6 +41,8 @@ Here's how I build `cql.wasm` on my Mac. **NOTE:** I have *not* yet succeeded in
 
 Install bmake, download the [WASI SDK](https://github.com/WebAssembly/wasi-sdk/releases), edit `src/makefile-flags` so the `COMPILE` and `LINK` variables point at the `clang++` and `wasm-ld` contained therein, respectively, then run `bmake`.
 
+*Note*: I call `make` when compiling/linking the CQL sources, since their Makefile assumes GNU make and that's what `make` defaults to on MacOS.
+
 ### Test What You Built
 
 **Optional**: If you have [wasmtime](https://wasmtime.dev) installed, you can test the resulting `cql.wasm` with all the CQL file examples in `exalpha/` by running `bmake test` (of the original `exalpha` examples, 4 do not currently work; I have moved them to `exalpha-excludes`, and will move them back if/when I can get them working).

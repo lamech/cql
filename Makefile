@@ -6,10 +6,10 @@ SHELL:=dash
 CQL_WASM:=cql.wasm
 WASM:=wasmtime --dir=.
 TESTOUTPUT:=testoutput
-EXAMPLES!=find . -name "*.cql"
+EXAMPLES!=cd exalpha && find . -name "*.cql"
 
 $(CQL_WASM):
-	@$(MAKE) -C src/ cql
+	@make -C src/ cql # Assume GNU make, since that's what the cql distribution uses.
 	@mv src/cql.wasm $(CQL_WASM)
 
 clean-test:
@@ -17,12 +17,14 @@ clean-test:
 
 clean: clean-test
 	@rm -f $(CQL_WASM)
-	@$(MAKE) -C src/ clean-cql
+	@make -C src/ clean-cql # Assume GNU make, since that's what the cql distribution uses.
 
+# Dynamically create test targets based on files in the exalpha directory,
+# e.g. `bmake turton` will run the turton.cql file against the sample.pgn database.
 .for e in ${EXAMPLES:O}
 
 ${e:R:T}: $(TESTOUTPUT)
-	@echo $(WASM) $(CQL_WASM) -i sample.pgn -o $(TESTOUTPUT)/$(@)-out.pgn $e
+	$(WASM) $(CQL_WASM) -i sample.pgn -o $(TESTOUTPUT)/$(@)-out.pgn exalpha/$(@).cql
 
 .endfor
 
