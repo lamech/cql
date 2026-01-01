@@ -38,7 +38,7 @@ Here's how I build `cql.wasm` on my Mac. **NOTE:** I have *not* yet succeeded in
 ### Prerequisites
 
 * dash - POSIX-compliant shell, ships with MacOS
-r [bmake](https://www.crufty.net/help/sjg/bmake.html) - portable cross-platform build system, available [via Homebrew](https://formulae.brew.sh/formula/bmake)
+* [bmake](https://www.crufty.net/help/sjg/bmake.html) - portable cross-platform build system, available [via Homebrew](https://formulae.brew.sh/formula/bmake)
 * The [WASI SDK](https://github.com/WebAssembly/wasi-sdk/releases)
 * Optional (for testing): [wasmtime](https://wasmtime.dev)
 
